@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def mandlebrot(c , max_iter):
+def mandelbrot(c , max_iter):
     z = 0
     for i in range(max_iter):
         if abs(z) > 2:
@@ -11,18 +11,18 @@ def mandlebrot(c , max_iter):
 
 def mandelbrot_set(xmin, xmax, ymin, ymax, width, height, max_iter):
     x = np.linspace(xmin, xmax, width)
-    y = np.linspace(ymin, ymax, width)
+    y = np.linspace(ymin, ymax, height)
     mset = np.zeros((height, width))
 
     for i in range(height):
         for j in range(width):
             c = complex(x[j],y[i])
-            mset[i,j] = mandlebrot(c,max_iter)
+            mset[i,j] = mandelbrot(c,max_iter)
     return mset
 
 xmin, xmax, ymin, ymax = -2.0, 1.0, -1.5, 1.5
 
-width, height = 5000, 5000
+width, height = 1000, 1000
 
 max_iter = 100
 
