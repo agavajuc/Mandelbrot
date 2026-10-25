@@ -1,0 +1,16 @@
+name = "Multibrot (degree 3)"
+step = "z**3 + c"
+
+[setup]
+z = "0"
+c = "p"
+
+[stop]
+mode = "diverge"
+radius = 256
+degree = 3
+
+[view]
+center = [0.0, 0.0]
+width = 3.0
+max_iter = 500

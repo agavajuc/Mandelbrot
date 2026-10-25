@@ -1,0 +1,21 @@
+name = "Julia (c = -0.8 + 0.156i)"
+step = "z**2 + c"
+
+[setup]
+z = "p"
+c = "-0.8 + 0.156j"
+
+[stop]
+mode = "diverge"
+radius = 256.0
+degree = 2
+tolerance = 1e-10
+periodicity = true
+
+[view]
+center = [np.float64(-0.14880295786661352), np.float64(0.1470778824849832)]
+width = 1.8189894035458566e-13
+max_iter = 8000
+
+[colour]
+cmap = "twilight_shifted"

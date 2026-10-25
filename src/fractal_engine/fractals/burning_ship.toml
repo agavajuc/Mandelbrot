@@ -1,0 +1,19 @@
+name = "Burning Ship"
+step = "(abs(re(z)) + 1j * abs(im(z)))**2 + c"
+
+[setup]
+z = "0"
+c = "p"
+
+[stop]
+mode = "diverge"
+radius = 256
+degree = 2
+
+[view]
+center = [-1.755, -0.03]     # the small "ship" on the negative real axis
+width = 0.12
+max_iter = 500
+
+[colour]
+cmap = "inferno"
