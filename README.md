@@ -1,17 +1,20 @@
 # Escape-time fractal engine
 
-Describe a fractal in a small TOML file; the engine turns the formula into a parallel Numba kernel.
+Project focused on developing an escape-time fractal renderer, with the purpose of making it fractal arbitrary. The project was inspired from [NeuralNine's YouTube video](https://youtu.be/xjjmkg9J7Gg?si=fouHKw4ElbWYwFYn) and evolved into a Numba parallelized engine for visualizing different fractals and interacting with them. The desired fractal can be rendered by describing it in a small TOML file, as explained below.
 
 ```bash
-pip install numba matplotlib pytest          # Python 3.11+ (uses tomllib)
+pip install numba matplotlib pytest
 
 python fractal.py render  fractals/mandelbrot.toml --size 3000x3000
-python fractal.py explore fractals/julia.toml           # scroll = zoom, +/- = iterations, s = save view
-python fractal.py code    fractals/burning_ship.toml    # show the generated kernel
+
+python fractal.py explore fractals/julia.toml
+
+python fractal.py code    fractals/burning_ship.toml
+
 python -m pytest tests -q
 ```
 
-## Reading order
+## Project Strucutre
 
 1. `fractals/mandelbrot.toml` and `fractals/julia.toml`: same formula, different `[setup]`.
    `p` is the pixel; whatever you assign it to decides which "plane" you are looking at.
@@ -51,10 +54,16 @@ cmap = "twilight_shifted"    # any matplotlib colormap
 
 Functions available in formulas: `re im conj abs exp log sqrt sin cos sinh cosh`.
 
-## Known limitations / next steps
+## Known limitations, next steps
 
 - Each new formula compiles in ~2 s (Numba can't disk-cache `exec`-generated code).
 - Burning Ship appears upside-down compared to most pictures online, which flip the imaginary axis.
-- Smooth colouring needs `degree`; formulas like `exp(z) + c` should use `degree = 0`.
-- Ideas: parameters as kernel arguments (live sliders, Mandelbrot→Julia link), resumable iterations,
-  Mariani–Silver subdivision, a GPU backend generating Metal/CUDA source from the same syntax tree.
+- Smooth coloring needs `degree`; formulas like `exp(z) + c` should use `degree = 0`.
+<!-- - Ideas: parameters as kernel arguments (live sliders, Mandelbrot→Julia link), resumable iterations,
+  Mariani–Silver subdivision, a GPU backend generating Metal/CUDA source from the same syntax tree. -->
+
+## Use of AI
+
+This project has made use of generative AI for two purposes: 
+- Building the well-structured TOML spec architecture, for significant improvement of user experience, and
+- Testing the source code.
